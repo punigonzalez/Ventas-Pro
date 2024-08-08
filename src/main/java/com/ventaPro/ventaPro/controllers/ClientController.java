@@ -25,7 +25,7 @@ public class ClientController {
 
     // crea cliente
     @PostMapping
-    @Operation(summary = "Crear usuario")
+    @Operation(summary = "Crear cliente")
     public ResponseEntity<Client> createClient(@RequestBody Client data){
         try{
             Client client = clientService.createClient(data);
@@ -40,7 +40,7 @@ public class ClientController {
 
     // devuelve lista clientes
    @GetMapping
-   @Operation(summary = "Lista de usuarios")
+   @Operation(summary = "Lista de clientes")
     public ResponseEntity<List<Client>> clientList(){
         try{
             List<Client> clients = clientService.clientList();
@@ -98,13 +98,5 @@ public class ClientController {
             return ResponseEntity.notFound().build();
         }
     }
-
-
-
-
-
-
-
-
 
 }

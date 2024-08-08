@@ -48,7 +48,7 @@ public class ProductController {
 
         }catch (Exception e){
             System.out.println(e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(500).build();
         }
     }
     // devuelve producto por id
@@ -100,5 +100,33 @@ public class ProductController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+    // devuelve lista de productos por marca
+    @GetMapping ("/marca/{marca}")
+    @Operation(summary = "Buscar productos por marca")
+    public ResponseEntity<List<Product>> getProductsByBrand(@PathVariable("marca")String brand){
+        List<Product> productsByBrand =  productService.findByBrand(brand);
+
+        if(productsByBrand.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(productsByBrand);
+    }
+
+    // devuelve lista de productos por categoria
+    @GetMapping("/category/{category}")
+    @Operation(summary = "Buscar productos por categoria")
+
+    public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category) {
+        List<Product> productsByCategory = productService.findByCategory(category);
+        if (productsByCategory.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(productsByCategory);
+    }
+
+
+
 
 }

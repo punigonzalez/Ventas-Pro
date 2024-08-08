@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-
 public class ClientService {
 
     @Autowired
@@ -29,6 +28,7 @@ public class ClientService {
     public Optional<Client> findById(Long id){
         return clientRepository.findById(id);
     }
+
     // elimina cliente por id
     public void deleteById(Long id){
         clientRepository.deleteById(id);
@@ -38,5 +38,7 @@ public class ClientService {
     public Client upgradeClientByid(Client client){
         return clientRepository.save(client);
     }
+
+
 
 }

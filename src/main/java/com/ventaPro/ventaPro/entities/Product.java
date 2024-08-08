@@ -1,5 +1,4 @@
 package com.ventaPro.ventaPro.entities;
-
 import jakarta.persistence.*;
 import lombok.*;
 

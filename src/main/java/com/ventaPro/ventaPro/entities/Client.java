@@ -2,14 +2,9 @@ package com.ventaPro.ventaPro.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Table(name="Clientes")
 @Getter @Setter @ToString @EqualsAndHashCode @NoArgsConstructor
-
-
-
 public class Client {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
