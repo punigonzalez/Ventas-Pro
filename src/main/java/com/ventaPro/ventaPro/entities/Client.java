@@ -13,7 +13,7 @@ import java.util.List;
 public class Client {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "Nombre")
     private String name;
@@ -24,8 +24,11 @@ public class Client {
     @Column(name = "DNI")
     private int docNumber;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Cart> carts;
+
+
+
+//    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private List<Cart> carts;
 
 
 

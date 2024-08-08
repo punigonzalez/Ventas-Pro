@@ -34,6 +34,9 @@ public class ClientService {
         clientRepository.deleteById(id);
     }
 
-
+    //modificar cliente por id
+    public Client upgradeClientByid(Client client){
+        return clientRepository.save(client);
+    }
 
 }
