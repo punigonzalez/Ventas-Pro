@@ -12,13 +12,13 @@ public class Product {
     private Long id;
 
     @Column(name="Precio")
-    private double price;
+    private Double price;
 
     @Column(name="Nombre")
     private String title;
 
     @Column(name="Cantidad_Stock")
-    private int stock;
+    private Integer stock;
 
     @Column(name="Descripcion")
     private String description;

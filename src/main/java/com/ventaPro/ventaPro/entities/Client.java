@@ -2,6 +2,8 @@ package com.ventaPro.ventaPro.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="Clientes")
 @Getter @Setter @ToString @EqualsAndHashCode @NoArgsConstructor
@@ -17,13 +19,16 @@ public class Client {
     private String lastName;
 
     @Column(name = "DNI")
-    private int docNumber;
+    private Integer docNumber;
 
 
 
 
-//    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private List<Cart> carts;
+    @OneToMany(mappedBy = "client")
+    private List<Cart> carts;
+
+//    @OneToMany(mappedBy = "client")
+//    private List<Invoice> invoices;
 
 
 

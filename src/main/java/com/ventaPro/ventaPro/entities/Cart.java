@@ -1,5 +1,6 @@
 package com.ventaPro.ventaPro.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name="Carritos")
-@Getter @Setter @ToString @EqualsAndHashCode @NoArgsConstructor
+@Getter @Setter @ToString @EqualsAndHashCode @NoArgsConstructor @AllArgsConstructor
 public class Cart {
 
     @Id
@@ -15,18 +16,24 @@ public class Cart {
     private Long id;
 
     @Column(name="Precio")
-    private double price;
+    private Double price;
 
     @Column(name="Cantidad")
-    private int amount;
+    private Integer amount;
 
     @Column(name="Entregado")
-    private boolean delivered;
+    private Boolean delivered;
 
-//    @ManyToOne
-//    @JoinColumn(name = "client_id", referencedColumnName = "id")
-//    private Client client;
-//
-//    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private List<Product> products;
+   @ManyToOne
+   @JoinColumn(name = "client_id", referencedColumnName = "id")
+   @JsonIgnore
+   private Client client;
+
+    @ManyToOne
+    @JoinColumn (name = "product_id", referencedColumnName = "id")
+    @JsonIgnore
+    private Product product;
 }
+
+
+

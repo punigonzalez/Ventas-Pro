@@ -103,9 +103,9 @@ public class ProductController {
 
 
     // devuelve lista de productos por marca
-    @GetMapping ("/marca/{marca}")
+    @GetMapping ("/brand/{brand}")
     @Operation(summary = "Buscar productos por marca")
-    public ResponseEntity<List<Product>> getProductsByBrand(@PathVariable("marca")String brand){
+    public ResponseEntity<List<Product>> getProductsByBrand(@PathVariable("brand")String brand){
         List<Product> productsByBrand =  productService.findByBrand(brand);
 
         if(productsByBrand.isEmpty()){
